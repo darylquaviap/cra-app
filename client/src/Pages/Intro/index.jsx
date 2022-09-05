@@ -18,6 +18,7 @@ const Intro = () => {
     return (
         <div
             className="Intro"
+            data-testid="intro"
             style={{
                 backgroundColor: 'black',
                 backgroundImage: `url(${stars})`,
@@ -28,6 +29,7 @@ const Intro = () => {
             }}
         >
             <h1
+                data-testid="introTitle"
                 style={{
                     color: 'white',
                     fontSize: '40px',
@@ -45,6 +47,7 @@ const Intro = () => {
             </h1>
             <img
                 className="animationBckgrd"
+                data-testid="animationBckgrd"
                 src={backgroundWorld}
                 alt={'worldAni'}
                 style={{
@@ -64,6 +67,7 @@ const Intro = () => {
             />
             <button
                 className="glowBtn"
+                data-testid="glowBtn"
                 style={{
                     padding: '10px 10px',
                     display: 'inline - block',
@@ -90,6 +94,7 @@ const Intro = () => {
             </button>
             <h3
                 className='joke'
+                data-testid="joke"
                 style={{
                     color: 'white',
                     display: 'block',
