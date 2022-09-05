@@ -10,7 +10,7 @@ const GetCountries = () => {            // UseQuery inside Apollo to get Countri
     if (loading) {      //Display loading screen
         return (
             <img
-                data-testId='loadingIcon'
+                data-testid='loadingIcon'
                 className="loading"
                 src={loadingIcon}
                 alt='loadingIcon'
@@ -31,6 +31,8 @@ const GetCountries = () => {            // UseQuery inside Apollo to get Countri
 
     return (
         <CntryTable     //display mui table with data being response data from apollo
+            data-testid="cntryTable"
+            className="cntryTable"
             data={data}
         />
     );
