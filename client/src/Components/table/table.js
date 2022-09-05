@@ -108,6 +108,9 @@ const CntryTable = (props) => {                 //mui table with api data
                         '.MuiDataGrid-columnSeparator--sideRight': {
                             backgroundColor: 'secondary.light',
                         },
+                        '.MuiDataGrid-columnHeaderTitleContainerContent': {
+                            marginLeft: '2px',
+                        },
                     }}
                     components={{ Toolbar: GridToolbar }} />}
         </box >
