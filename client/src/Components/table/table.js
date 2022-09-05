@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { DataGrid, GridToolbar } from '@mui/x-data-grid';
 import { FlagIcon } from 'react-flag-kit';
+
 
 const GetFlagIcon = (cntryCode) => {            //get corresponding flag pic
     const { code } = cntryCode;
@@ -19,33 +19,39 @@ const CntryTable = (props) => {                 //mui table with api data
         {
             field: 'code',
             headerName: 'Code',
+            headerClassName: 'super-app-theme--header',
             // width: 150,
             editable: false,
         },
         {
             field: 'name',
             headerName: 'Name',
+            headerClassName: 'super-app-theme--header',
             width: 200,
             editable: false,
         },
         {
             field: 'capital',
             headerName: 'Capital',
+            headerClassName: 'super-app-theme--header',
             width: 200,
         },
         {
             field: 'currency',
             headerName: 'Currency',
+            headerClassName: 'super-app-theme--header',
             width: 200,
         },
         {
             field: 'native',
             headerName: 'Native',
+            headerClassName: 'super-app-theme--header',
             width: 200,
         },
         {
             field: 'continent.name',
             headerName: 'Continent',
+            headerClassName: 'super-app-theme--header',
             width: 200,
             renderCell: (cntryRows) =>
                 (cntryRows.row.continent.name)
@@ -53,6 +59,7 @@ const CntryTable = (props) => {                 //mui table with api data
         {
             field: 'flag',
             headerName: 'Flag',
+            headerClassName: 'super-app-theme--header',
             description: 'This column is not sortable or filterable.',
             sortable: false,
             filterable: false,
@@ -65,16 +72,45 @@ const CntryTable = (props) => {                 //mui table with api data
     ];
 
     return (
-        <div style={{ height: 500, width: '100%' }}>
+        <box
+            style={{
+                height: 500,
+                width: '100%',
+            }}
+        >
             {!countries                         // only display table if there's country data
                 ? null
                 : <DataGrid
                     columns={columns}
                     rows={cntryRows}
                     getRowId={(cntryRows) => cntryRows.id}
+                    getRowClassName={(params) =>
+                        params.indexRelativeToCurrentPage % 2 === 0 ? 'even' : 'odd'
+                    }
+
                     rowsPerPageOptions={[10, 25, 50, 100]}
+                    sx={{
+                        boxShadow: 2,
+                        border: 2,
+                        borderColor: 'secondary.light',
+                        '& .MuiDataGrid-cell:hover': {
+                            color: 'primary.main',
+                        },
+                        '& .super-app-theme--header': {
+                            backgroundColor: 'secondary.light',
+                        },
+                        '& .odd.MuiDataGrid-row': {
+                            backgroundColor: 'secondary.light',
+                        },
+                        '& .MuiDataGrid-footerContainer': {
+                            backgroundColor: 'secondary.light',
+                        },
+                        '.MuiDataGrid-columnSeparator--sideRight': {
+                            backgroundColor: 'secondary.light',
+                        },
+                    }}
                     components={{ Toolbar: GridToolbar }} />}
-        </div>
+        </box >
     );
 };
 
