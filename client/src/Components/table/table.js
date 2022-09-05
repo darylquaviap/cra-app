@@ -47,8 +47,8 @@ const CntryTable = (props) => {                 //mui table with api data
             field: 'continent.name',
             headerName: 'Continent',
             width: 200,
-        //     renderCell: (cntryRows) =>
-        //         (cntryRows.row.continent.name)
+            renderCell: (cntryRows) =>
+                (cntryRows.row.continent.name)
         },
         {
             field: 'flag',
